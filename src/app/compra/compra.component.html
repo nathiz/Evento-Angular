@@ -1,0 +1,35 @@
+<p>Lista de Compras</p>
+
+<form [formGroup]='formularioCompra' (ngSubmit)="enviarDados()">
+
+  <label> Id do Evento </label>
+  <input type="text" formControlName="eventoId">
+
+  <label> Id do Usuário </label>
+  <input type="text" formControlName="usuarioId">
+
+  <label for="quantidade"> Quantidade de Ingressos: </label>
+  <input type="text" formControlName="quantidade">
+  <div *ngIf="!quantidade.pristine && quantidade.errors">
+    <p *ngIf="quantidade.errors.minlength">
+      A quantidade deve ser no mínimo de 3 ingressos.
+    </p>
+    <p *ngIf="quantidade.errors.maxlength">
+      A quantidade deve ser no máximo de 100000 ingressos.
+    </p>
+  </div>
+
+  <label> Total </label>
+
+  <button type="submit"> Cadastar </button>
+</form>
+
+<ul>
+  <li *ngFor="let compra of compra">
+    <a routerLink="/compra">
+      <p> {{ compra.id }} </p>
+      <p> {{ compra.eventoId }} </p>
+      <p> {{ compra.usuarioId }} </p>
+    </a>
+  </li>
+</ul>

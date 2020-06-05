@@ -1,0 +1,80 @@
+<section id="eventos">
+  <div class="container-fluid text-center eventos">
+
+    <h3> Lista de Eventos </h3>
+
+    <form [formGroup]='formularioEvento' (ngSubmit)="enviarDados()">
+
+      <label for="nome"> Nome do Evento: </label>
+      <input type="text" formControlName="nome">
+      <div *ngIf="!nome.pristine && nome.errors">
+        <p *ngIf="nome.errors.required">
+          Nome é Obrigatório.
+        </p>
+        <p *ngIf="nome.errors.minlength">
+          Nome deve ter no mínimo 3 caracters.
+        </p>
+        <p *ngIf="nome.errors.maxlength">
+          Nome deve ter no máximo 100 caracters.
+        </p>
+      </div>
+
+      <label for="descricao"> Descrição sobre Evento: </label>
+      <input type="text" formControlName="descricao">
+      <div *ngIf="!descricao.pristine && descricao.errors">
+        <p *ngIf="descricao.errors.minlength">
+          A descrição deve ter no mínimo 3 caracters.
+        </p>
+        <p *ngIf="descricao.errors.maxlength">
+          A descrição deve ter no máximo 1000 caracters.
+        </p>
+      </div>
+
+      <label for="quantidade"> Quantidade de Ingressos: </label>
+      <input type="text" formControlName="quantidade">
+      <div *ngIf="!quantidade.pristine && quantidade.errors">
+        <p *ngIf="quantidade.errors.minlength">
+          A quantidade deve ser no mínimo de 3 ingressos.
+        </p>
+        <p *ngIf="quantidade.errors.maxlength">
+          A quantidade deve ser no máximo de 100000 ingressos.
+        </p>
+      </div>
+
+      <label> Preço </label>
+      <input type="text" formControlName="preco">
+
+      <label> Data </label>
+      <input type="text" formControlName="data">
+
+      <label> Id da Casa de Show </label>
+      <input type="text" formControlName="casaId">
+
+      <button type="submit"> Cadastar </button>
+    </form>
+    <hr>
+    <ul>
+      <li *ngFor="let evento of eventos">
+        <a routerLink="/eventos">
+          <table>
+            <tr>
+              <td> {{ evento.id }} </td>
+              <td> {{ evento.nome }} </td>
+              <td> {{ evento.descricao }} </td>
+            </tr>
+          </table>
+        </a>
+      </li>
+    </ul>
+    <section id="compra">
+      <div class="container-fluid text-center compra">
+        <li routerLinkActive="active"><a routerLink="/compra"> Comprar </a></li>
+      </div>
+    </section>
+    <section id="detalhes">
+      <div class="container-fluid text-center detalhes">
+        <li routerLinkActive="active"><a routerLink="/detalhes"> Detalhes </a></li>
+      </div>
+    </section>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+<section id="casas">
+  <div class="container-fluid text-center casas">
+
+    <h3> Lista de Casas de Show </h3>
+
+    <form [formGroup]='formularioCasas' (ngSubmit)="enviarDados()">
+
+      <label for="nome"> Nome da Casa de Show: </label>
+      <input type="text" formControlName="nome">
+      <div *ngIf="!nome.pristine && nome.errors">
+        <p *ngIf="nome.errors.minlength">
+          Nome deve ter no mínimo 3 caracters.
+        </p>
+        <p *ngIf="nome.errors.maxlength">
+          Nome deve ter no máximo 100 caracters..
+        </p>
+      </div>
+
+      <label for="endereco"> Endereço da Casa de Show: </label>
+      <input type="text" formControlName="endereco">
+      <div *ngIf="!endereco.pristine && endereco.errors">
+        <p *ngIf="endereco.errors.minlength">
+          O endereço deve ter no mínimo 3 caracters.
+        </p>
+        <p *ngIf="endereco.errors.maxlength">
+          O endereço deve ter no máximo 300 caracters.
+        </p>
+      </div>
+
+      <label for="capacidade"> Capacidade: </label>
+      <input type="text" formControlName="capacidade">
+      <div *ngIf="!capacidade.pristine && capacidade.errors">
+        <p *ngIf="capacidade.errors.minlength">
+          A capacidade deve ter no mínimo 3 caracters.
+        </p>
+        <p *ngIf="capacidade.errors.maxlength">
+          A capacidade deve ter no máximo 100000 caracters.
+        </p>
+      </div>
+
+      <button type="submit">Cadastar</button>
+    </form>
+    <hr>
+    <ul>
+      <li *ngFor="let casa of casas">
+        <a routerLink="/casas">
+          <table>
+            <tr>
+              <td> {{ casa.id }} </td>
+              <td> {{ casa.nome }} </td>
+              <td> {{ casa.endereco }} </td>
+            </tr>
+          </table>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</section>

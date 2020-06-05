@@ -1,0 +1,14 @@
+.corpo{
+  font: 20px Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.212) ;
+}
+
+.margin{
+padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.usuario{
+  background-color: rgba(0, 0, 0, 0.212);
+  color: rgb(151, 101, 101);
+}

@@ -1,0 +1,34 @@
+body{
+  font: 20px Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.212) ;
+}
+
+.margin{
+padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.corpo{
+  background-color: rgba(0, 0, 0, 0.212);
+  color: rgb(151, 101, 101);
+}
+
+.casas{
+  background-color: rgba(0, 0, 0, 0.212);
+  color: rgb(151, 101, 101);
+}
+
+.eventos{
+  background-color: rgba(0, 0, 0, 0.212);
+  color: rgb(151, 101, 101);
+}
+
+.detlhes{
+  background-color: rgba(0, 0, 0, 0.212);
+  color: rgb(151, 101, 101);
+}
+
+.usuario{
+  background-color: rgba(0, 0, 0, 0.212);
+  color: rgb(151, 101, 101);
+}

@@ -1,0 +1,57 @@
+<section id="usuario">
+  <div class="container-fluid text-center usuario">
+
+    <h3> Lista de Usuarios </h3>
+
+    <form [formGroup]='formularioUsuario' (ngSubmit)="enviarDados()">
+
+      <label for="nome"> Nome: </label>
+      <input type="text" formControlName="nome">
+      <div *ngIf="!nome.pristine && nome.errors">
+        <p *ngIf="nome.errors.minlength">
+          Nome deve ter no mínimo 3 caracters.
+        </p>
+        <p *ngIf="nome.errors.maxlength">§
+          Nome deve ter no máximo 100 caracters.
+        </p>
+      </div>
+
+      <label for="sobrenome"> Sobrenome: </label>
+      <input type="text" formControlName="sobrenome">
+      <div *ngIf="!sobrenome.pristine && sobrenome.errors">
+        <p *ngIf="sobrenome.errors.minlength">
+          Sobrenome deve ter no mínimo 3 caracters.
+        </p>
+        <p *ngIf="sobrenome.errors.maxlength">§
+          Sobrenome deve ter no máximo 100 caracters.
+        </p>
+      </div>
+
+      <label> E-mail </label>
+      <input type="text" formControlName="email">
+
+      <label> Telefone: </label>
+      <input type="text" formControlName="telefone">
+
+      <label> Senha: </label>
+      <input type="text" formControlName="senha">
+
+      <button type="submit"> Cadastar </button>
+    </form>
+    <hr>
+      <ul>
+        <li *ngFor="let usuario of usuario">
+          <a routerLink="/usuario">
+            <table>
+              <tr>
+                <td> {{ usuario.id }} </td>
+                <td> {{ usuario.nome }} </td>
+                <td> {{ usuario.sobrenome }} </td>
+              </tr>
+            </table>
+          </a>
+        </li>
+      </ul>>
+  </div>
+</section>
+
